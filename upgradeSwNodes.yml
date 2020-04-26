@@ -1,0 +1,11 @@
+---
+
+- name: "Upgrade {{ target }} Nodes"
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+    - dottgonzo.upgrade_system_and_reboot
+
+
+      

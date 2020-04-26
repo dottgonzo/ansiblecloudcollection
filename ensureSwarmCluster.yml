@@ -1,0 +1,10 @@
+---
+- name: Setup Docker Swarm Cluster
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+    # - set-k8s-node-settings
+    # - kubeadm-init-prep
+    - role: dottgonzo.ansible_role_init_and_join_docker_swarm_cluster
+

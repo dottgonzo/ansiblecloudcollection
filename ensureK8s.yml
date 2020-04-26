@@ -1,0 +1,8 @@
+---
+- name: Setup K8s
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+    - dottgonzo.remove_system_swap
+    - dottgonzo.ansible_role_install_ubuntu_k8s_binaries

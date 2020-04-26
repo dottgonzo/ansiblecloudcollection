@@ -1,0 +1,11 @@
+---
+
+- name: Reset K8s
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+
+    - dottgonzo.ansible_role_reset_k8s
+
+- import_playbook: ensureSwarmCluster.yml

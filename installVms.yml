@@ -1,0 +1,28 @@
+---
+- name: Create VMs
+  hosts: 
+  - "{{ hypervisor }}"
+  any_errors_fatal: true
+  tasks:
+  - name: setup vm
+    with_items: "{{ groups[target] }}"
+    include_role:
+      name: dottgonzo.ansible_role_add_kvm_vm
+    vars: 
+      vm_name: "{{hostvars[item].inventory_hostname}}"
+      vm_ip: "{{hostvars[item].ansible_ssh_host}}"
+      netplan_configuration: "{{hostvars[item].netplan_configuration}}"
+      image_original: "focal"
+      netplan_config_file: "/etc/netplan/01-netcfg.yaml"
+
+
+
+
+- name: Wait for Boot
+  gather_facts: no
+  hosts: "{{ target }}"
+  tasks:
+    - name: Wait 300 seconds, but only start checking after 60 seconds
+      wait_for_connection:
+        delay: 10
+        timeout: 300

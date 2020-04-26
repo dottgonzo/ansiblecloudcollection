@@ -1,0 +1,4 @@
+---
+- import_playbook: ensureServer.yml
+- import_playbook: ensureSwarmCluster.yml
+

@@ -1,0 +1,4 @@
+---
+- import_playbook: ensureServer.yml
+- import_playbook: ensureK8s.yml
+- import_playbook: ensureMicroK8s.yml

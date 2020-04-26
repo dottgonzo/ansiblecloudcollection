@@ -1,0 +1,10 @@
+---
+- name: Setup Micro K8s
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+    - dottgonzo.ansible_ubuntu_uk8s
+
+
+      

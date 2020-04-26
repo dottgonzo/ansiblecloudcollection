@@ -1,0 +1,12 @@
+---
+
+- name: Reset Micro K8s
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+
+    - dottgonzo.ansible_role_reset_microk8s
+    - dottgonzo.ansible_role_reboot_machine
+
+- import_playbook: ensureMicroK8s.yml

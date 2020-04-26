@@ -1,0 +1,23 @@
+---
+
+- name: Remove VMs
+  hosts: 
+    - "{{ hypervisor }}"
+  any_errors_fatal: true
+  tasks:
+    - name: Stop VM
+      command: "virsh destroy {{ vm_name }}"
+      when: nostartvm is undefined
+      with_items: "{{ groups[target] }}"
+      ignore_errors: yes
+
+      vars: 
+        vm_name: "{{hostvars[item].inventory_hostname}}"
+    - name: Remove VM
+      command: "virsh undefine {{ vm_name }} --remove-all-storage"
+      when: nostartvm is undefined
+      with_items: "{{ groups[target] }}"
+      vars: 
+        vm_name: "{{hostvars[item].inventory_hostname}}"
+      ignore_errors: yes
+

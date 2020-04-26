@@ -1,0 +1,12 @@
+---
+
+- name: Setup K8s Cluster
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+    # - set-k8s-node-settings
+    # - kubeadm-init-prep
+    - dottgonzo.ansible_role_init_k8s_cluster_with_metallb_and_calico
+    - name: dottgonzo.ansible_role_setup_custom_k8s_proxy
+      when: primarymaster is defined

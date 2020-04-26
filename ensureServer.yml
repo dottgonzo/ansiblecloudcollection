@@ -1,0 +1,15 @@
+---
+- name: Setup Core System
+  hosts: 
+    - "{{ target }}"
+  become: yes
+  roles:
+    - dottgonzo.set_hostname_and_reboot
+    - dottgonzo.upgrade_system_and_reboot
+    - dottgonzo.set_common_system_settings
+    - dottgonzo.add_ubuntu_ansible_extras
+    - dottgonzo.add_ubuntu_production_server_basic_tools
+    - dottgonzo.add_ubuntu_docker
+    - dottgonzo.ansible_role_login_into_docker_registry
+    - dottgonzo.ansible_role_add_ssh_key
+
