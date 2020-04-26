@@ -17,8 +17,7 @@ readme: README.md
 # A list of the collection's content authors. Can be just the name or in the format 'Full Name <email> (url)
 # @nicks:irc/im.site#channel'
 authors:
-- Dario Caruso <dev@dariocaruso.info>
-
+  - Dario Caruso <dev@dariocaruso.info>
 
 ### OPTIONAL but strongly recommended
 
@@ -28,11 +27,11 @@ description: Useful Playbooks for Cloud CLusters and Servers setup and test
 # Either a single license or a list of licenses for content inside of a collection. Ansible Galaxy currently only
 # accepts L(SPDX,https://spdx.org/licenses/) licenses. This key is mutually exclusive with 'license_file'
 license:
-- Apache-2.0
+  - Apache-2.0
 
 # The path to the license file for the collection. This path is relative to the root of the collection. This key is
 # mutually exclusive with 'license'
-license_file: ''
+license_file: ""
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
@@ -42,8 +41,29 @@ tags: []
 # collection label 'namespace.name'. The value is a version range
 # L(specifiers,https://python-semanticversion.readthedocs.io/en/latest/#requirement-specification). Multiple version
 # range specifiers can be set and are separated by ','
-dependencies: {}
-
+dependencies: {
+  "dottgonzo.set_hostname_and_reboot": "*",
+  "dottgonzo.upgrade_system_and_reboot": "*",
+  "dottgonzo.remove_system_swap": "*",
+  "dottgonzo.set_common_system_settings": "*",
+  "dottgonzo.add_ubuntu_production_server_basic_tools": "*",
+  "dottgonzo.add_ubuntu_ansible_extras": "*",
+  "dottgonzo.ansible_ubuntu_uk8s": "*",
+  "dottgonzo.add_ubuntu_docker": "*",
+  "dottgonzo.ansible_role_reboot_machine": "*",
+  "dottgonzo.ansible_role_install_ubuntu_k8s_binaries": "*",
+  "dottgonzo.ansible_role_set_netplan_file": "*",
+  "dottgonzo.ansible_role_reset_microk8s": "*",
+  "dottgonzo.ansible_role_reset_k8s": "*",
+  "dottgonzo.ansible_role_login_into_docker_registry": "*",
+  "dottgonzo.ansible_role_add_kvm_vm": "*",
+  "dottgonzo.ansible_role_add_ssh_key": "*",
+  "dottgonzo.ansible_role_kubectl_from_local_file": "*",
+  "dottgonzo.ansible_role_init_k8s_cluster_with_metallb_and_calico": "*",
+  "dottgonzo.ansible_role_setup_custom_k8s_proxy": "*",
+  "dottgonzo.ansible_role_init_and_join_docker_swarm_cluster": "*",
+  "dottgonzo.ansible_role_set_disk_mounts": "*",
+}
 # The URL of the originating SCM repository
 repository: https://github.com/dottgonzo/ansiblecloudcollection
 
